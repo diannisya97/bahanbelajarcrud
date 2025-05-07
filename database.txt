@@ -1,0 +1,18 @@
+-- Membuat database bernama 'moving_class'
+CREATE DATABASE moving_class;
+
+-- Menggunakan database yang baru dibuat
+USE moving_class;
+
+-- Membuat tabel 'dosen' untuk menyimpan data dosen
+CREATE TABLE dosen (
+    id_dosen INT AUTO_INCREMENT PRIMARY KEY,       -- ID unik setiap dosen, auto increment
+    nip VARCHAR(30) NOT NULL UNIQUE,              -- Nomor Induk Pegawai, harus unik dan tidak boleh kosong
+    nama_dosen VARCHAR(100) NOT NULL,             -- Nama lengkap dosen, wajib diisi
+    email VARCHAR(100),                           -- Email dosen, opsional
+    username VARCHAR(50) UNIQUE,                  -- Username untuk login, harus unik
+    password VARCHAR(255),                        -- Password untuk login (harus disimpan dalam bentuk hash di PHP)
+    no_hp VARCHAR(20),                            -- Nomor HP dosen
+    alamat TEXT,                                  -- Alamat lengkap dosen
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Tanggal dan waktu saat data dimasukkan
+);
